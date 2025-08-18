@@ -4,18 +4,22 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { vapi } from "@/lib/vapi";
 import { useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+
+type ChatMessage = {
+  content: string;
+  role: "assistant" | "user";
+};
 
 const GenerateProgramPage = () => {
   const [callActive, setCallActive] = useState(false);
   const [connecting, setConnecting] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
-  const [messages, setMessages] = useState<any[]>([]);
-  const [callEnded, setCallEnded] = useState(false);
+  const [, setIsSpeaking] = useState(false);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [, setCallEnded] = useState(false);
 
   const { user } = useUser();
-  const router = useRouter();
   const messageContainerRef = useRef<HTMLDivElement>(null);
 
   // suppress noisy "Meeting has ended" logs
@@ -63,15 +67,23 @@ const GenerateProgramPage = () => {
     const handleSpeechStart = () => setIsSpeaking(true);
     const handleSpeechEnd = () => setIsSpeaking(false);
 
-    const handleMessage = (message: any) => {
+    const handleMessage = (message: {
+      type: string;
+      transcript?: string;
+      transcriptType?: string;
+      role?: "assistant" | "user";
+    }) => {
       if (message.type === "transcript" && message.transcriptType === "final") {
-        const newMessage = { content: message.transcript, role: message.role };
+        const newMessage: ChatMessage = {
+          content: message.transcript ?? "",
+          role: message.role ?? "assistant",
+        };
         setMessages((prev) => [...prev, newMessage]);
       }
     };
 
-    const handleError = (error: any) => {
-      console.log("Vapi Error", error);
+    const handleError = (error: unknown) => {
+      console.error("Vapi Error", error);
       setConnecting(false);
       setCallActive(false);
     };
@@ -102,7 +114,7 @@ const GenerateProgramPage = () => {
       try {
         setConnecting(true);
         setCallEnded(false);
-        setMessages([]); // <-- clear previous chat here for fresh session
+        setMessages([]); // clear previous chat
 
         const fullName = user?.firstName
           ? `${user.firstName} ${user.lastName || ""}`.trim()
@@ -115,7 +127,7 @@ const GenerateProgramPage = () => {
           },
         });
       } catch (error) {
-        console.log("Failed to start call", error);
+        console.error("Failed to start call", error);
         setConnecting(false);
       }
     }
@@ -141,73 +153,20 @@ const GenerateProgramPage = () => {
           {/* AI CARD */}
           <Card className="bg-card/90 backdrop-blur-sm border border-border overflow-hidden relative">
             <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
-              {/* AI speaking animation */}
-              <div
-                className={`absolute inset-0 ${
-                  isSpeaking ? "opacity-30" : "opacity-0"
-                } transition-opacity duration-300`}
-              >
-                <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex justify-center items-center h-20">
-                  {[...Array(5)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`mx-1 h-16 w-1 bg-primary rounded-full ${
-                        isSpeaking ? "animate-sound-wave" : ""
-                      }`}
-                      style={{
-                        animationDelay: `${i * 0.1}s`,
-                        height: isSpeaking
-                          ? `${Math.random() * 50 + 20}%`
-                          : "5%",
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-
               {/* AI avatar */}
               <div className="relative size-32 mb-4">
-                <div
-                  className={`absolute inset-0 bg-primary opacity-10 rounded-full blur-lg ${
-                    isSpeaking ? "animate-pulse" : ""
-                  }`}
+                <Image
+                  src="/ai.jpg"
+                  alt="AI Assistant"
+                  width={128}
+                  height={128}
+                  className="rounded-full object-cover"
                 />
-                <div className="relative w-full h-full rounded-full bg-card flex items-center justify-center border border-border overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-secondary/10"></div>
-                  <img
-                    src="/ai.jpg"
-                    alt="AI Assistant"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
               </div>
-
               <h2 className="text-xl font-bold text-foreground">CodeFlex AI</h2>
               <p className="text-sm text-muted-foreground mt-1">
                 Your Personal AI Assistant
               </p>
-
-              {/* Speaking status */}
-              <div
-                className={`mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border ${
-                  isSpeaking ? "border-primary" : ""
-                }`}
-              >
-                <div
-                  className={`w-2 h-2 rounded-full ${
-                    isSpeaking ? "bg-primary animate-pulse" : "bg-muted"
-                  }`}
-                />
-                <span className="text-xs text-muted-foreground">
-                  {isSpeaking
-                    ? "Speaking..."
-                    : callActive
-                      ? "Listening..."
-                      : callEnded
-                        ? "Call ended"
-                        : "Waiting..."}
-                </span>
-              </div>
             </div>
           </Card>
 
@@ -215,11 +174,17 @@ const GenerateProgramPage = () => {
           <Card className="bg-card/90 backdrop-blur-sm border overflow-hidden relative">
             <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
               <div className="relative size-32 mb-4">
-                <img
-                  src={user?.imageUrl}
-                  alt="User"
-                  className="size-full object-cover rounded-full"
-                />
+                {user?.imageUrl ? (
+                  <Image
+                    src={user.imageUrl}
+                    alt="User"
+                    width={128}
+                    height={128}
+                    className="rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="size-full bg-muted rounded-full" />
+                )}
               </div>
               <h2 className="text-xl font-bold text-foreground">You</h2>
               <p className="text-sm text-muted-foreground mt-1">
@@ -227,10 +192,6 @@ const GenerateProgramPage = () => {
                   ? (user.firstName + " " + (user.lastName || "")).trim()
                   : "Guest"}
               </p>
-              <div className="mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-card border">
-                <div className="w-2 h-2 rounded-full bg-muted" />
-                <span className="text-xs text-muted-foreground">Ready</span>
-              </div>
             </div>
           </Card>
         </div>
@@ -265,16 +226,11 @@ const GenerateProgramPage = () => {
             onClick={toggleCall}
             disabled={connecting}
           >
-            {connecting && (
-              <span className="absolute inset-0 rounded-full animate-ping bg-primary/50 opacity-75"></span>
-            )}
-            <span>
-              {callActive
-                ? "End Call"
-                : connecting
-                  ? "Connecting..."
-                  : "Start Call"}
-            </span>
+            {callActive
+              ? "End Call"
+              : connecting
+                ? "Connecting..."
+                : "Start Call"}
           </Button>
         </div>
       </div>

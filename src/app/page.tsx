@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
             <div className="absolute -top-10 left-0 w-40 h-40 border-l-2 border-t-2" />
 
             {/* LEFT SIDE CONTENT */}
-            <div className="lg:col-span-7 space-y-8 relative">
+            <div className="lg:col-span-7 space-y-8 relative flex flex-col items-center lg:items-start text-center lg:text-left">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
                 <div>
                   <span className="text-foreground">Your Personal</span>
@@ -32,28 +33,28 @@ const Home = () => {
               {/* SEPERATOR LINE */}
               <div className="h-px w-full bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
 
-              <p className="text-xl text-muted-foreground w-2/3">
+              <p className="text-xl text-muted-foreground w-full sm:w-2/3">
                 Chat with your AI assistant for quick answers, guidance, or
                 support whenever you need it.
               </p>
 
               {/* STATS */}
-              <div className="flex items-center gap-10 py-6 font-mono">
-                <div className="flex flex-col">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-10 py-6 font-mono">
+                <div className="flex flex-col items-center sm:items-start">
                   <div className="text-2xl text-primary">24/7</div>
                   <div className="text-xs uppercase tracking-wider">
                     Availability
                   </div>
                 </div>
-                <div className="h-12 w-px bg-gradient-to-b from-transparent via-border to-transparent"></div>
-                <div className="flex flex-col">
+                <div className="h-12 w-px bg-gradient-to-b from-transparent via-border to-transparent hidden sm:block"></div>
+                <div className="flex flex-col items-center sm:items-start">
                   <div className="text-2xl text-primary">Instant</div>
                   <div className="text-xs uppercase tracking-wider">
                     Responses
                   </div>
                 </div>
-                <div className="h-12 w-px bg-gradient-to-b from-transparent via-border to-transparent"></div>
-                <div className="flex flex-col">
+                <div className="h-12 w-px bg-gradient-to-b from-transparent via-border to-transparent hidden sm:block"></div>
+                <div className="flex flex-col items-center sm:items-start">
                   <div className="text-2xl text-primary">100%</div>
                   <div className="text-xs uppercase tracking-wider">
                     Personalized
@@ -73,14 +74,14 @@ const Home = () => {
                     className="flex items-center font-mono"
                   >
                     Talk to Assistant
-                    <ArrowRightIcon className="ml-2 size-5" />
+                    <ArrowRightIcon className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
               </div>
             </div>
 
             {/* RIGHT SIDE CONTENT */}
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative mt-10 lg:mt-0">
               {/* CORNER PIECES */}
               <div className="absolute -inset-4 pointer-events-none">
                 <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-border" />
@@ -90,17 +91,14 @@ const Home = () => {
               </div>
 
               {/* IMAGE CONTAINER */}
-              <div className="relative aspect-square max-w-lg mx-auto">
-                <div className="relative overflow-hidden rounded-lg bg-cyber-black">
-                  <img
+              <div className="relative w-full max-w-md sm:max-w-lg mx-auto aspect-square">
+                <div className="absolute inset-0 overflow-hidden rounded-lg bg-cyber-black">
+                  <Image
                     src="/ai.jpg"
                     alt="AI Assistant"
-                    className="size-full object-cover object-center"
+                    fill
+                    className="object-cover object-center rounded-lg"
                   />
-
-                  {/* SCAN LINE */}
-                  {/* <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,transparent_calc(50%-1px),var(--cyber-glow-primary)_50%,transparent_calc(50%+1px),transparent_100%)] bg-[length:100%_8px] animate-scanline pointer-events-none" /> */}
-
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                 </div>
               </div>

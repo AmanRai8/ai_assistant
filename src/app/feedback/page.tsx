@@ -31,7 +31,7 @@ const FeedbackPage = () => {
       } else {
         setError(data.error || "Failed to send feedback.");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to send feedback.");
     } finally {
       setLoading(false);
