@@ -55,26 +55,31 @@ Welcome to **AI Assistant.ai**, your personal AI companion! This intelligent ass
 
 ## 📱 Screenshots
 
-**Home / Dashboard**  
+**Home / Dashboard**
+
 ![Home Screenshot](./public/homepage.png)
 
-**AI Assistant Call**  
+**AI Assistant Call Interface**
+
 ![Call Start](./public/callStart.png)
 
 ![Call Started](./public/callStarted.png)
 
-**About**  
+**About**
+
 ![About](./public/about.png)
 
-**Profile Page**  
+**Profile Page**
+
 ![Profile Screenshot](./public/profile.png)
 
-**Feedback Form**  
+**Feedback Form**
+
 ![Feedback Screenshot](./public/feedback.png)
 
 ---
 
-**[⬆ Back to Top](#ai-assistant)**
+**[⬆ Back to Top](#ai-assistant-🤖)**
 
 ## 🚀 Getting Started
 
@@ -124,4 +129,4 @@ RESEND_API_KEY=your_resend_api_key
 npm run dev
 ```
 
-**[⬆ Back to Top](#ai-assistant)**
+**[⬆ Back to Top](#ai-assistant-🤖)**
