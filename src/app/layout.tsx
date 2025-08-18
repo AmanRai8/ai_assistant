@@ -27,11 +27,17 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <head>
+          {/* Fix scaling issue on deployment */}
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Navbar />
-
           <main className="pt-24 flex-grow">{children}</main>
         </body>
       </html>
