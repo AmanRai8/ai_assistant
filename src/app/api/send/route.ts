@@ -1,28 +1,29 @@
-// import { NextRequest, NextResponse } from "next/server";
-// import { Resend } from "resend";
-// import { EmailTemplate } from "@/components/EmailTemplate";
+import { Resend } from "resend";
 
-// const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// export async function POST(req: NextRequest) {
-//   try {
-//     const { name, email, message } = await req.json();
+export async function POST(req: Request) {
+  try {
+    const { name, email, message } = await req.json();
 
-//     if (!name || !email || !message) {
-//       return NextResponse.json({ error: "All fields are required." }, { status: 400 });
-//     }
+    await resend.emails.send({
+      from: "AI Assistant <noreply@resend.dev>", // can be any email for Resend
+      to: "amanrai2002acr@gmail.com", // YOUR EMAIL
+      subject: `New Feedback from ${name}`,
+      html: `
+        <h2>New Feedback Received</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+    });
 
-//     await resend.emails.send({
-//       from: "AI Assistant <onboarding@resend.dev>",
-//       to: ["your.email@example.com"],   // your email
-//       reply_to: email,                  // user's email
-//       subject: `Feedback from ${name}`,
-//       react: <EmailTemplate name={name} message={message} />,
-//     });
-
-//     return NextResponse.json({ success: true });
-//   } catch (error) {
-//     console.error(error);
-//     return NextResponse.json({ error: "Failed to send feedback." }, { status: 500 });
-//   }
-// }
+    return new Response(JSON.stringify({ status: "success" }), { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: "Failed to send email" }), {
+      status: 500,
+    });
+  }
+}

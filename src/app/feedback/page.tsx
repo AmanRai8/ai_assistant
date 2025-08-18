@@ -8,20 +8,39 @@ const FeedbackPage = () => {
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you can integrate API call to store feedback
-    console.log({ name, email, feedback });
-    setSubmitted(true);
-    setName("");
-    setEmail("");
-    setFeedback("");
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message: feedback }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setSubmitted(true);
+        setName("");
+        setEmail("");
+        setFeedback("");
+      } else {
+        setError(data.error || "Failed to send feedback.");
+      }
+    } catch (err) {
+      setError("Failed to send feedback.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="flex flex-col items-center justify-center px-4 py-16 bg-background text-foreground min-h-screen">
-      <div className="w-full max-w-2xl bg-card/90 border border-border rounded-lg p-8 shadow-lg">
+      <div className="w-full max-w-lg bg-card/90 border border-border rounded-lg p-8 shadow-lg">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Feedback
         </h1>
@@ -30,12 +49,14 @@ const FeedbackPage = () => {
         </p>
 
         {submitted && (
-          <div
-            className="text-primary font-bold px-4 py-2 rounded mb-4 text-center text-2xl w-full
-               transition transform duration-500 ease-out
-               scale-90 opacity-0 animate-show"
-          >
+          <div className="text-green-500 font-bold px-4 py-2 rounded mb-4 text-center animate-show">
             Thank you for your feedback!
+          </div>
+        )}
+
+        {error && (
+          <div className="text-destructive font-bold px-4 py-2 rounded mb-4 text-center animate-show">
+            {error}
           </div>
         )}
 
@@ -67,8 +88,9 @@ const FeedbackPage = () => {
           <Button
             type="submit"
             className="bg-primary text-white hover:bg-primary/90 w-full"
+            disabled={loading}
           >
-            Submit
+            {loading ? "Sending..." : "Submit"}
           </Button>
         </form>
       </div>
