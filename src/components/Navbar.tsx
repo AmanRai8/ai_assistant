@@ -5,7 +5,6 @@ import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import {
   HomeIcon,
   UserIcon,
-  MessageSquareIcon,
   Brain,
   Github,
   MenuIcon,
@@ -27,7 +26,7 @@ const Navbar = () => {
             <Brain className="w-6 h-6 text-primary" />
           </div>
           <span className="text-2xl font-bold font-mono">
-            AI<span className="text-primary">Assistant</span>.ai
+            AI<span className="text-primary">Assistant</span>
           </span>
         </Link>
 
@@ -121,6 +120,20 @@ const Navbar = () => {
               >
                 <UserIcon size={20} />
                 <span>Profile</span>
+              </Link>
+              <Link
+                href="/about"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <UserIcon size={20} />
+                <span>About</span>
+              </Link>
+              <Link
+                href="/feedback"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <UserIcon size={20} />
+                <span>Feedback</span>
               </Link>
               <Link
                 href="https://github.com/AmanRai8/ai_trainer"

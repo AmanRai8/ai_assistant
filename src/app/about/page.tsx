@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const AboutPage = () => (
   <div className="flex flex-col items-center justify-center px-4 py-16 bg-background text-foreground">
     {/* Hero Section */}
@@ -12,11 +14,14 @@ const AboutPage = () => (
         with AI in real-time. Get instant insights, personalized responses, and
         a smarter way to work with AI.
       </p>
-      <img
-        src="/ai.jpg"
-        alt="AI Assistant"
-        className="mx-auto w-64 md:w-80 rounded-lg shadow-lg"
-      />
+      <div className="relative w-64 md:w-80 h-64 md:h-80 mx-auto rounded-lg shadow-lg overflow-hidden">
+        <Image
+          src="/ai.jpg"
+          alt="AI Assistant"
+          fill
+          className="object-cover object-center"
+        />
+      </div>
     </div>
 
     {/* Features Section */}
