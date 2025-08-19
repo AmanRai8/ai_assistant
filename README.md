@@ -1,6 +1,6 @@
-# AI Assistant 🤖
+# AI Assistant
 
-Welcome to **AI Assistant.ai**, your personal AI companion! This intelligent assistant helps you brainstorm ideas, solve problems, and interact with AI in real-time. Built with **Next.js**, **React**, **Clerk authentication**, and **Tailwind CSS**, this app is fully responsive and optimized for all devices.
+Welcome to **AI Assistant**, your personal AI companion! This intelligent assistant helps you brainstorm ideas, solve problems, and interact with AI in real-time. Built with **Next.js**, **React**, **Clerk authentication**, and **Tailwind CSS**, this app is fully responsive and optimized for all devices.
 
 ---
 
@@ -65,6 +65,8 @@ Welcome to **AI Assistant.ai**, your personal AI companion! This intelligent ass
 
 ![Call Started](./public/callStarted.png)
 
+[⬆ Back to Top](#ai-assistant)
+
 **About**
 
 ![About](./public/about.png)
@@ -79,7 +81,7 @@ Welcome to **AI Assistant.ai**, your personal AI companion! This intelligent ass
 
 ---
 
-**[⬆ Back to Top](#ai-assistant-🤖)**
+[⬆ Back to Top](#ai-assistant)
 
 ## 🚀 Getting Started
 
@@ -129,4 +131,21 @@ RESEND_API_KEY=your_resend_api_key
 npm run dev
 ```
 
-**[⬆ Back to Top](#ai-assistant-🤖)**
+[⬆ Back to Top](#ai-assistant)
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit changes (`git commit -m "Added new feature"`)
+4. Push (`git push origin feature-branch`)
+5. Open a Pull Request
+
+![GitHub stars](https://img.shields.io/github/stars/AmanRai8/ai_assistant?style=social)
+![GitHub forks](https://img.shields.io/github/forks/AmanRai8/ai_assistant?style=social)
+![GitHub issues](https://img.shields.io/github/issues/AmanRai8/ai_assistant)
+![GitHub license](https://img.shields.io/github/license/AmanRai8/ai_assistant)
+
+[⬆ Back to Top](#ai-assistant)
