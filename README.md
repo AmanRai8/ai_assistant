@@ -1,4 +1,5 @@
 # AI Assistant
+
 Welcome to **AI Assistant**, your personal AI companion! This intelligent assistant helps you brainstorm ideas, solve problems, and interact with AI in real-time. Built with **Next.js**, **React**, **Clerk authentication**, and **Tailwind CSS**, this app is fully responsive and optimized for all devices.
 
 ---
@@ -40,7 +41,7 @@ Welcome to **AI Assistant**, your personal AI companion! This intelligent assist
 - **Frontend and backend**:  
   ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
 - **Database**:  
-   <img src="./public/logo-color.png" alt="Convex" width="150" height="auto" />
+   <img src="./public/logo-white.png" alt="Convex" width="150" height="auto" />
 - **Authentication**:  
   ![Clerk](https://img.shields.io/badge/Clerk-000000?style=for-the-badge&logo=clerk&logoColor=white)
 - **Email Feedback**:  
@@ -64,7 +65,6 @@ Welcome to **AI Assistant**, your personal AI companion! This intelligent assist
 
 ![Call Started](./public/callStarted.png)
 
-
 [⬆ Back to Top](#ai-assistant)
 
 **About**
@@ -82,7 +82,6 @@ Welcome to **AI Assistant**, your personal AI companion! This intelligent assist
 ---
 
 [⬆ Back to Top](#ai-assistant)
-
 
 ## 🚀 Getting Started
 
@@ -131,17 +130,18 @@ RESEND_API_KEY=your_resend_api_key
 ```bash
 npm run dev
 ```
+
 [⬆ Back to Top](#ai-assistant)
 
 ## 🤝 Contributing
-Contributions are welcome!  
-1. Fork the repo  
-2. Create a new branch (`git checkout -b feature-branch`)  
-3. Commit changes (`git commit -m "Added new feature"`)  
-4. Push (`git push origin feature-branch`)  
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit changes (`git commit -m "Added new feature"`)
+4. Push (`git push origin feature-branch`)
 5. Open a Pull Request
-
-
 
 ![GitHub stars](https://img.shields.io/github/stars/AmanRai8/ai_assistant?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/AmanRai8/ai_assistant?style=social)
