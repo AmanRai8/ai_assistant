@@ -1,8 +1,18 @@
 # AI Assistant
-[![GitHub stars](https://img.shields.io/github/stars/AmanRai8/ai_assistant?style=social)](https://github.com/AmanRai8/ai_assistant/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/AmanRai8/ai_assistant?style=social)](https://github.com/AmanRai8/ai_assistant/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/AmanRai8/ai_assistant)](https://github.com/AmanRai8/ai_assistant/issues)
-[![GitHub license](https://img.shields.io/github/license/AmanRai8/ai_assistant)](https://github.com/AmanRai8/ai_assistant/blob/main/LICENSE)
+<p align="center">
+  <a href="https://github.com/AmanRai8/ai_assistant/stargazers">
+    <img src="https://img.shields.io/github/stars/AmanRai8/ai_assistant?style=social&label=Stars&color=yellow" alt="Stars">
+  </a>
+  <a href="https://github.com/AmanRai8/ai_assistant/network/members">
+    <img src="https://img.shields.io/github/forks/AmanRai8/ai_assistant?style=social&label=Forks&color=blue" alt="Forks">
+  </a>
+  <a href="https://github.com/AmanRai8/ai_assistant/issues">
+    <img src="https://img.shields.io/github/issues/AmanRai8/ai_assistant?color=red" alt="Issues">
+  </a>
+  <a href="https://github.com/AmanRai8/ai_assistant/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/AmanRai8/ai_assistant?color=green" alt="License">
+  </a>
+</p>
 
 Welcome to **AI Assistant**, your personal AI companion! This intelligent assistant helps you brainstorm ideas, solve problems, and interact with AI in real-time. Built with **Next.js**, **React**, **Clerk authentication**, and **Tailwind CSS**, this app is fully responsive and optimized for all devices.
 
