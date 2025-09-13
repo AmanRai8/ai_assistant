@@ -32,6 +32,17 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
+          {/* github button */}
+          <a
+            href="https://github.com/AmanRai8/ai-assistant"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3"
+          >
+            <div className="p-1.5 bg-primary/10 rounded">
+              <Github className="w-10 h-7.5 hover:text-primary transition-colors" />
+            </div>
+          </a>
           {isSignedIn ? (
             <>
               <Link
@@ -62,14 +73,6 @@ const Navbar = () => {
                 className="flex items-center gap-2 text-base hover:text-primary transition-colors"
               >
                 <span>Feedback</span>
-              </Link>
-              <Link
-                href="https://github.com/AmanRai8/ai_trainer"
-                className="flex items-center gap-3"
-              >
-                <div className="p-1.5 bg-primary/10 rounded">
-                  <Github className="w-10 h-7.5 hover:text-primary transition-colors" />
-                </div>
               </Link>
 
               <UserButton afterSignOutUrl="/" />
@@ -135,17 +138,32 @@ const Navbar = () => {
                 <UserIcon size={20} />
                 <span>Feedback</span>
               </Link>
-              <Link
-                href="https://github.com/AmanRai8/ai_trainer"
+              <a
+                href="https://github.com/AmanRai8/ai-assistant"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3"
               >
-                <Github className="w-6 h-6 text-primary" />
-                <span>GitHub</span>
-              </Link>
+                <div className="p-1.5 bg-primary/10 rounded">
+                  <Github className="w-10 h-7.5 hover:text-primary transition-colors" />
+                </div>
+              </a>
               <UserButton afterSignOutUrl="/" />
             </>
           ) : (
             <>
+              <a
+                href="https://github.com/AmanRai8/ai_assistant"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open GitHub repository (new tab)"
+                title="GitHub: AmanRai8/ai_assistant"
+                className="flex items-center gap-3 justify-center"
+              >
+                <div className="p-1.5 bg-primary/10 rounded">
+                  <Github className="w-10 h-8 hover:text-primary transition-colors" />
+                </div>
+              </a>
               <SignInButton>
                 <Button
                   variant="outline"
