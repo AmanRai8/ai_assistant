@@ -153,13 +153,15 @@ const Navbar = () => {
           ) : (
             <>
               <a
-                href="https://github.com/AmanRai8/ai-assistant"
+                href="https://github.com/AmanRai8/ai_assistant"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Open GitHub repository (new tab)"
+                title="GitHub: AmanRai8/ai_assistant"
                 className="flex items-center gap-3 justify-center"
               >
                 <div className="p-1.5 bg-primary/10 rounded">
-                  <Github className="w-10 h-7.5 hover:text-primary transition-colors" />
+                  <Github className="w-10 h-8 hover:text-primary transition-colors" />
                 </div>
               </a>
               <SignInButton>
