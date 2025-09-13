@@ -1,4 +1,7 @@
-# AI Assistant
+<img src="./public/gif.gif" alt="banner gif" width="1200" height="250">
+
+# 🤖 AI Assistant
+
 <p align="center">
   <a href="https://github.com/AmanRai8/ai_assistant/stargazers">
     <img src="https://img.shields.io/github/stars/AmanRai8/ai_assistant?style=social&label=Stars&color=yellow" alt="Stars">
@@ -79,7 +82,7 @@ Welcome to **AI Assistant**, your personal AI companion! This intelligent assist
 
 ![Call Started](./public/callStarted.png)
 
-[⬆ Back to Top](#ai-assistant)
+## [⬆ Back to Top](#-ai-assistant)
 
 **About**
 
@@ -95,7 +98,7 @@ Welcome to **AI Assistant**, your personal AI companion! This intelligent assist
 
 ---
 
-[⬆ Back to Top](#ai-assistant)
+## [⬆ Back to Top](#-ai-assistant)
 
 ## 🚀 Getting Started
 
@@ -145,8 +148,6 @@ RESEND_API_KEY=your_resend_api_key
 npm run dev
 ```
 
-[⬆ Back to Top](#ai-assistant)
-
 ## 🤝 Contributing
 
 Contributions are welcome!
@@ -157,5 +158,4 @@ Contributions are welcome!
 4. Push (`git push origin feature-branch`)
 5. Open a Pull Request
 
-
-[⬆ Back to Top](#ai-assistant)
+## [⬆ Back to Top](#-ai-assistant)
