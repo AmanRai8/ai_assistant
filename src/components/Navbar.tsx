@@ -139,7 +139,7 @@ const Navbar = () => {
                 <span>Feedback</span>
               </Link>
               <a
-                href="https://github.com/AmanRai8/ai-assistant"
+                href="https://github.com/AmanRai8/ai_assistant"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3"
