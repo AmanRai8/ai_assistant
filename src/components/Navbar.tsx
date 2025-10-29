@@ -34,7 +34,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center gap-6">
           {/* github button */}
           <a
-            href="https://github.com/AmanRai8/ai-assistant"
+            href="https://github.com/AmanRai8/ai_assistant"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3"
