@@ -163,7 +163,9 @@ const GenerateProgramPage = () => {
                   className="rounded-full object-cover"
                 />
               </div>
-              <h2 className="text-xl font-bold text-foreground">CodeFlex AI</h2>
+              <h2 className="text-xl font-bold text-foreground">
+                AI Assistant
+              </h2>
               <p className="text-sm text-muted-foreground mt-1">
                 Your Personal AI Assistant
               </p>
@@ -206,7 +208,7 @@ const GenerateProgramPage = () => {
               {messages.map((msg, index) => (
                 <div key={index} className="message-item animate-fadeIn">
                   <div className="font-semibold text-xs text-muted-foreground mb-1">
-                    {msg.role === "assistant" ? "CodeFlex AI" : "You"}:
+                    {msg.role === "assistant" ? "AI Assistant" : "You"}:
                   </div>
                   <p className="text-foreground">{msg.content}</p>
                 </div>
